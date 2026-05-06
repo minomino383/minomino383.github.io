@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mingyang Luo — Marketing Analytics · Brand · Growth</title>
+<meta name="description" content="Mingyang Luo — Marketing analytics, brand strategy, and growth. M.S. Marketing Intelligence, Fordham University. Open to roles." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6ecdc;
+    --surface:#fdf6e8;
+    --surface-2:#fbf1de;
+    --ink:#16221c;
+    --ink-soft:#4a574f;
+    --muted:#8a8a82;
+    --green-deep:#0c4a36;
+    --green-mid:#3e7a64;
+    --green-soft:#a3c2b0;
+    --peach:#ffd2a8;
+    --peach-deep:#f6b97e;
+    --lavender:#dbd0ff;
+    --lavender-deep:#c0afff;
+    --sky:#bedfff;
+    --sky-deep:#9bc8ff;
+    --yellow:#fde68a;
+    --line:#e6dcc8;
+    --shadow-sm: 0 1px 2px rgba(22,34,28,0.04);
+    --shadow-md: 0 6px 20px rgba(22,34,28,0.06);
+    --shadow-lg: 0 14px 40px rgba(22,34,28,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+
+  .serif{
+    font-family:'Fraunces',Georgia,serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144,'WONK' 0;
+    font-weight:600;
+    letter-spacing:-0.015em;
+  }
+
+  /* ========== TOP NAV ========== */
+  header.top{
+    position:sticky;top:0;z-index:100;
+    background:var(--bg);
+    padding:18px 32px;
+  }
+  .top-inner{
+    max-width:1280px;margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;gap:20px;
+  }
+  .logo{display:flex;align-items:center;gap:12px;}
+  .avatar-sm{
+    width:42px;height:42px;border-radius:50%;
+    overflow:hidden;
+    border:2px solid var(--ink);
+    box-shadow:var(--shadow-sm);
+    flex-shrink:0;
+  }
+  .avatar-sm img{width:100%;height:100%;object-fit:cover;display:block;}
+  .logo-name{font-weight:700;font-size:17px;letter-spacing:-0.01em;color:var(--ink);}
+
+  .tabs{
+    display:flex;gap:4px;
+    background:#fff;
+    padding:6px;
+    border-radius:999px;
+    box-shadow:var(--shadow-sm);
+    justify-self:center;
+  }
+  .tab{
+    padding:9px 20px;
+    border-radius:999px;
+    font-weight:500;font-size:14px;
+    color:var(--ink-soft);
+    transition:all .2s ease;
+    white-space:nowrap;
+  }
+  .tab:hover{color:var(--ink);}
+  .tab.active{
+    background:var(--green-deep);
+    color:#fff;font-weight:600;
+  }
+
+  .top-right{display:flex;gap:10px;justify-self:end;align-items:center;}
+  .btn-dark{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:#fff;
+    padding:10px 18px;border-radius:999px;
+    font-weight:600;font-size:13.5px;
+    transition:transform .2s, background .2s;
+  }
+  .btn-dark:hover{background:var(--green-deep);transform:translateY(-2px);}
+  .btn-icon{
+    width:42px;height:42px;
+    background:var(--ink);color:#fff;
+    border-radius:10px;
+    display:grid;place-items:center;
+    transition:background .2s, transform .2s;
+  }
+  .btn-icon:hover{background:var(--green-deep);transform:translateY(-2px);}
+  .btn-icon svg{width:18px;height:18px;}
+
+  /* ========== MAIN CARD ========== */
+  main{padding:0 32px 80px;}
+  .stage{
+    max-width:1280px;margin:0 auto;
+    background:var(--surface);
+    border-radius:32px;
+    padding:64px 56px 80px;
+    box-shadow:var(--shadow-lg);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(22,34,28,0.06) 1px, transparent 0);
+    background-size:18px 18px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .panel{display:none;animation:fade .35s ease;}
+  .panel.active{display:block;}
+  @keyframes fade{
+    from{opacity:0;transform:translateY(8px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  /* ========== HOME ========== */
+  .pill-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow);
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13.5px;font-weight:600;
+    color:var(--ink);
+    border:1.5px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .pill-tag .emoji{font-size:16px;}
+
+  .home-hero{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;margin-bottom:48px;}
+  .home-hero-tag{
+    align-self:start;
+    transform:rotate(2deg);
+    margin-top:32px;
+    position:relative;
+  }
+  .home-hero-tag::before{
+    content:"";
+    position:absolute;
+    left:-22px;top:8px;
+    width:24px;height:18px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18' fill='none' stroke='%23fde68a' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M2 9 L20 9 M14 3 L20 9 L14 15'/%3E%3C/svg%3E") no-repeat center / contain;
+  }
+
+  h1.hi{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    color:var(--green-deep);
+    font-size:clamp(48px,7vw,86px);
+    line-height:1.0;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  h1.hi .light{color:var(--green-mid);font-weight:500;}
+
+  .home-lead{
+    font-size:19px;line-height:1.55;
+    color:var(--ink-soft);
+    max-width:760px;
+    margin-top:32px;
+  }
+  .home-lead .inline-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#fff;
+    border:1.5px solid var(--ink);
+    border-radius:999px;
+    padding:3px 12px 3px 8px;
+    font-size:15px;font-weight:600;
+    color:var(--ink);
+    margin:0 2px;
+    vertical-align:middle;
+    line-height:1.3;
+  }
+  .home-lead .inline-pill.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .home-lead .inline-pill .dot{
+    width:14px;height:14px;border-radius:50%;
+    background:var(--peach-deep);
+    border:1.5px solid var(--ink);
+  }
+  .home-lead .inline-pill.dark .dot{background:var(--green-soft);border-color:var(--green-soft);}
+
+  .preview-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:64px;
+    transform:translateY(0);
+  }
+  .pcard{
+    border-radius:24px;
+    padding:28px 26px;
+    border:2px solid var(--ink);
+    box-shadow:6px 6px 0 var(--ink);
+    display:flex;flex-direction:column;justify-content:space-between;
+    min-height:280px;
+    transition:transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+  }
+  .pcard:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink);}
+  .pcard:nth-child(1){background:var(--peach);transform:rotate(-2deg);}
+  .pcard:nth-child(2){background:var(--lavender);transform:rotate(1deg);}
+  .pcard:nth-child(3){background:var(--sky);transform:rotate(-1deg);}
+  .pcard:nth-child(1):hover{transform:rotate(-2deg) translate(-2px,-2px);}
+  .pcard:nth-child(2):hover{transform:rotate(1deg) translate(-2px,-2px);}
+  .pcard:nth-child(3):hover{transform:rotate(-1deg) translate(-2px,-2px);}
+  .pcard h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    font-size:30px;line-height:1.1;
+    color:var(--ink);
+    margin-bottom:14px;
+    letter-spacing:-0.015em;
+  }
+  .pcard p{
+    color:var(--ink);
+    font-size:15px;line-height:1.5;
+    opacity:0.85;
+    margin-bottom:24px;
+  }
+  .pcard-cta{
+    align-self:flex-start;
+    background:var(--ink);color:#fff;
+    padding:9px 16px;border-radius:999px;
+    font-size:13px;font-weight:600;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+
+  /* ========== WORK ========== */
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:48px;flex-wrap:wrap;gap:16px;
+  }
+  h2.section-title{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    color:var(--green-deep);
+    font-size:clamp(40px,5.5vw,68px);
+    line-height:1.0;
+    letter-spacing:-0.018em;
+  }
+  .section-sub{
+    color:var(--ink-soft);font-size:17px;line-height:1.55;
+    max-width:720px;margin-top:16px;
+  }
+
+  .work-list{display:flex;flex-direction:column;gap:24px;}
+  .job{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:22px;
+    padding:32px 36px;
+    box-shadow:5px 5px 0 var(--ink);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .job:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+  .job-head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:24px;flex-wrap:wrap;
+    padding-bottom:18px;
+    border-bottom:1.5px dashed var(--line);
+    margin-bottom:20px;
+  }
+  .job-title-block h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    font-size:26px;line-height:1.15;
+    color:var(--ink);
+    margin-bottom:4px;
+    letter-spacing:-0.01em;
+  }
+  .job-company{
+    color:var(--green-deep);
+    font-weight:600;font-size:15px;
+  }
+  .job-meta{
+    text-align:right;font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .job-meta .date{
+    display:inline-block;
+    background:var(--bg);
+    padding:4px 10px;border-radius:999px;
+    font-weight:600;color:var(--ink);
+    font-size:12.5px;
+    margin-bottom:4px;
+  }
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .job li{
+    position:relative;
+    padding-left:22px;
+    color:var(--ink-soft);
+    font-size:15px;line-height:1.6;
+  }
+  .job li::before{
+    content:"";
+    position:absolute;left:0;top:9px;
+    width:8px;height:8px;
+    background:var(--green-mid);
+    border-radius:2px;
+    transform:rotate(45deg);
+  }
+  .job li strong{color:var(--ink);font-weight:600;}
+  .job-tags{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;
+    padding-top:18px;border-top:1.5px dashed var(--line);
+  }
+  .chip{
+    background:var(--bg);
+    color:var(--ink-soft);
+    padding:5px 11px;
+    border-radius:999px;
+    font-size:12.5px;font-weight:500;
+  }
+
+  /* ========== ABOUT (Journey + Values) ========== */
+  .about-intro{
+    color:var(--ink-soft);font-size:18px;line-height:1.65;
+    max-width:780px;margin-bottom:48px;
+  }
+  .about-intro strong{color:var(--ink);font-weight:600;}
+
+  .timeline{
+    position:relative;
+    padding-left:36px;
+    margin-bottom:80px;
+    border-left:2px dashed var(--green-soft);
+  }
+  .tl-item{
+    position:relative;
+    padding:18px 0 28px 32px;
+  }
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-46px;top:24px;
+    width:20px;height:20px;
+    background:var(--surface);
+    border:3px solid var(--green-deep);
+    border-radius:50%;
+  }
+  .tl-item.now::before{
+    background:var(--peach);
+    box-shadow:0 0 0 5px rgba(246,185,126,0.35);
+  }
+  .tl-date{
+    font-family:'Inter',sans-serif;
+    font-size:12.5px;font-weight:600;
+    color:var(--green-mid);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:6px;
+  }
+  .tl-title{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    font-size:22px;line-height:1.2;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .tl-meta{color:var(--ink-soft);font-size:14.5px;line-height:1.5;}
+
+  .values-head{margin-bottom:32px;}
+  .values-list{display:flex;flex-direction:column;}
+  .value{
+    display:grid;
+    grid-template-columns:80px 1.1fr 1fr;
+    gap:32px;
+    padding:32px 0;
+    border-top:1.5px solid var(--line);
+  }
+  .value:last-child{border-bottom:1.5px solid var(--line);}
+  .value-num{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:500;
+    font-size:24px;
+    color:var(--green-soft);
+    padding-top:6px;
+  }
+  .value h4{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    font-size:28px;line-height:1.15;
+    color:var(--green-deep);
+    letter-spacing:-0.01em;
+  }
+  .value p{
+    color:var(--ink-soft);
+    font-size:15.5px;line-height:1.65;
+  }
+
+  /* ========== BEYOND WORK ========== */
+  .beyond-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-bottom:48px;
+  }
+  .beyond-card{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:6px 6px 0 var(--ink);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .beyond-card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink);}
+  .beyond-media{
+    aspect-ratio:16/10;
+    position:relative;
+    display:grid;place-items:center;
+    overflow:hidden;
+  }
+  .beyond-media.climbing{background:linear-gradient(135deg,#ffd2a8 0%,#f6b97e 100%);}
+  /* piano section removed — climbing + music (band/guitar) + travel only */
+  .play-btn{
+    width:74px;height:74px;
+    background:rgba(22,34,28,0.92);
+    border-radius:50%;
+    display:grid;place-items:center;
+    color:#fff;
+    border:3px solid #fff;
+    box-shadow:0 6px 20px rgba(0,0,0,0.18);
+    transition:transform .2s;
+  }
+  .play-btn:hover{transform:scale(1.08);}
+  .play-btn svg{width:26px;height:26px;margin-left:4px;}
+  .placeholder-note{
+    position:absolute;bottom:14px;left:14px;
+    background:rgba(22,34,28,0.85);color:#fff;
+    padding:6px 12px;border-radius:999px;
+    font-size:11.5px;font-weight:500;
+    letter-spacing:0.04em;
+  }
+  .beyond-decor{
+    position:absolute;
+    width:60px;height:60px;
+    opacity:0.6;
+  }
+  .beyond-decor.tl{top:18px;left:20px;}
+  .beyond-decor.br{bottom:18px;right:20px;}
+  .beyond-body{padding:28px;}
+  .beyond-eyebrow{
+    font-size:12.5px;font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--green-mid);
+    margin-bottom:10px;
+  }
+  .beyond-body h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    font-size:26px;line-height:1.15;
+    color:var(--ink);
+    margin-bottom:12px;
+    letter-spacing:-0.01em;
+  }
+  .beyond-body p{
+    color:var(--ink-soft);
+    font-size:15px;line-height:1.6;
+    margin-bottom:16px;
+  }
+  .beyond-link{
+    color:var(--green-deep);
+    font-weight:600;font-size:14px;
+    border-bottom:2px solid var(--green-soft);
+    padding-bottom:1px;
+  }
+
+  .relate-block{
+    background:var(--green-deep);
+    color:#f6ecdc;
+    padding:48px 44px;
+    border-radius:28px;
+    margin-top:24px;
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:36px;
+    align-items:center;
+  }
+  .relate-block h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    font-size:34px;line-height:1.1;
+    color:#fde68a;
+    letter-spacing:-0.015em;
+  }
+  .relate-block p{
+    color:rgba(246,236,220,0.86);
+    font-size:15.5px;line-height:1.7;
+    margin-bottom:8px;
+  }
+  .relate-block p:last-child{margin-bottom:0;}
+
+  /* ========== TOOLKIT ========== */
+  .toolkit-head{
+    margin-top:80px;
+    margin-bottom:32px;
+  }
+  .toolkit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-bottom:24px;
+  }
+  .tk-col{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:22px;
+    padding:28px 28px 24px;
+    box-shadow:5px 5px 0 var(--ink);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .tk-col:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+  .tk-eyebrow{
+    display:flex;align-items:center;gap:10px;
+    font-size:12.5px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.1em;
+    color:var(--green-mid);
+    margin-bottom:6px;
+  }
+  .tk-eyebrow .swatch{
+    width:14px;height:14px;border-radius:4px;
+    border:1.5px solid var(--ink);
+  }
+  .tk-eyebrow .swatch.peach{background:var(--peach-deep);}
+  .tk-eyebrow .swatch.lavender{background:var(--lavender-deep);}
+  .tk-col h4{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    font-size:24px;line-height:1.2;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+    margin-bottom:18px;
+  }
+  .tk-chips{
+    display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .tk-chip{
+    background:var(--bg);
+    color:var(--ink);
+    padding:7px 13px;
+    border-radius:8px;
+    font-size:13px;font-weight:500;
+    border:1.5px solid var(--line);
+    transition:all .2s ease;
+  }
+  .tk-chip:hover{
+    background:var(--green-deep);
+    color:#fff;
+    border-color:var(--ink);
+    transform:translateY(-1px);
+  }
+  .tk-chip.star{
+    background:var(--yellow);
+    border-color:var(--ink);
+    font-weight:600;
+  }
+  .tk-foot{
+    display:flex;flex-wrap:wrap;gap:22px;
+    margin-top:24px;
+    padding:18px 24px;
+    background:var(--surface-2);
+    border:1.5px dashed var(--line);
+    border-radius:14px;
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+  .tk-foot strong{color:var(--ink);font-weight:600;}
+  @media (max-width:780px){
+    .toolkit-grid{grid-template-columns:1fr;}
+  }
+
+  /* ========== JOB STAT STRIP ========== */
+  .job-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin:0 0 22px 0;
+    padding:18px;
+    background:linear-gradient(135deg,var(--peach) 0%,var(--peach-deep) 100%);
+    border:2px solid var(--ink);
+    border-radius:18px;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .job-stat{text-align:left;padding:0 6px;}
+  .job-stat .num{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;
+    font-size:clamp(22px,3vw,30px);
+    line-height:1;
+    color:var(--green-deep);
+    letter-spacing:-0.01em;
+  }
+  .job-stat .lbl{
+    font-size:11px;font-weight:600;
+    color:var(--ink);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-top:6px;
+    line-height:1.3;
+  }
+  .job-stats-note{
+    grid-column:1/-1;
+    font-size:11.5px;
+    color:rgba(22,34,28,0.7);
+    text-align:right;
+    margin-top:4px;
+  }
+  @media (max-width:680px){
+    .job-stats{grid-template-columns:repeat(2,1fr);gap:14px;}
+  }
+
+  /* ========== ABOUT PORTRAIT ========== */
+  .about-hero{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:28px;
+    align-items:flex-start;
+    margin-bottom:24px;
+  }
+  .portrait{
+    width:120px;height:120px;
+    border-radius:50%;
+    overflow:hidden;
+    border:3px solid var(--ink);
+    box-shadow:5px 5px 0 var(--ink);
+    flex-shrink:0;
+    transform:rotate(-3deg);
+    transition:transform .3s ease;
+  }
+  .portrait:hover{transform:rotate(0deg) scale(1.04);}
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block;}
+  @media (max-width:980px){
+    .about-hero{grid-template-columns:1fr;}
+    .portrait{width:96px;height:96px;}
+  }
+
+  /* ========== WORK GALLERY ========== */
+  .gallery-head{
+    margin-top:64px;margin-bottom:24px;
+    display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  }
+  .gallery-head h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;font-size:28px;color:var(--green-deep);
+    letter-spacing:-0.01em;
+  }
+  .gallery-head .sub{color:var(--ink-soft);font-size:14.5px;}
+  .work-gallery{
+    display:grid;
+    grid-template-columns:1.4fr 0.8fr 0.8fr;
+    grid-auto-rows:160px;
+    gap:14px;
+  }
+  .gtile{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    border:2px solid var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+    background:#fff;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .gtile:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+  .gtile img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gtile .gcap{
+    position:absolute;left:10px;bottom:10px;
+    background:rgba(22,34,28,0.88);color:#fde68a;
+    padding:5px 11px;border-radius:999px;
+    font-size:11.5px;font-weight:600;
+    letter-spacing:0.04em;
+  }
+  .gtile.tall{grid-row:span 2;}
+  .gtile.wide{grid-column:span 2;}
+
+  /* ========== BEYOND WORK v2 — climbing video, music, travel ========== */
+  .climb-block{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:28px;
+    padding:36px;
+    box-shadow:8px 8px 0 var(--ink);
+    margin-bottom:32px;
+  }
+  .climb-head{
+    display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;
+    margin-bottom:24px;
+  }
+  .climb-head h3{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;font-size:36px;line-height:1.1;
+    color:var(--green-deep);letter-spacing:-0.015em;
+    margin-bottom:10px;
+  }
+  .climb-head p{
+    color:var(--ink-soft);font-size:15.5px;line-height:1.65;
+    max-width:640px;
+  }
+  .climb-head .stat-pill{
+    display:inline-flex;flex-direction:column;align-items:center;
+    background:var(--peach);color:var(--ink);
+    border:2px solid var(--ink);
+    padding:14px 18px;border-radius:18px;
+    box-shadow:3px 3px 0 var(--ink);
+    transform:rotate(2deg);
+    min-width:120px;
+  }
+  .climb-head .stat-pill .num{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;font-size:30px;line-height:1;
+    color:var(--green-deep);
+  }
+  .climb-head .stat-pill .lbl{
+    font-size:11px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.08em;
+    color:var(--ink);margin-top:4px;
+  }
+  .climb-videos{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .vtile{
+    position:relative;
+    border-radius:16px;overflow:hidden;
+    border:2px solid var(--ink);
+    aspect-ratio:9/12;
+    background:#000;
+  }
+  .vtile video{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .vtile .vcap{
+    position:absolute;left:10px;bottom:10px;
+    background:rgba(22,34,28,0.88);color:#fde68a;
+    padding:5px 11px;border-radius:999px;
+    font-size:11.5px;font-weight:600;
+    letter-spacing:0.04em;
+  }
+  .vtile .grade{
+    position:absolute;top:10px;right:10px;
+    background:var(--peach-deep);color:var(--ink);
+    border:2px solid var(--ink);
+    font-family:'JetBrains Mono','SF Mono',monospace;
+    font-weight:700;font-size:12px;
+    padding:4px 10px;border-radius:8px;
+    transform:rotate(4deg);
+  }
+  .climb-falls{
+    margin-top:22px;padding-top:22px;
+    border-top:1.5px dashed var(--line);
+    font-size:15px;color:var(--ink-soft);line-height:1.6;
+  }
+  .climb-falls strong{color:var(--green-deep);}
+
+  .twocol{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+    margin-bottom:32px;
+  }
+  .media-card{
+    background:#fff;border:2px solid var(--ink);border-radius:24px;
+    overflow:hidden;
+    box-shadow:6px 6px 0 var(--ink);
+    transition:transform .25s ease, box-shadow .25s ease;
+    display:flex;flex-direction:column;
+  }
+  .media-card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink);}
+  .media-img{
+    aspect-ratio:4/3;
+    overflow:hidden;background:var(--bg);
+  }
+  .media-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .media-body{padding:24px 26px;}
+  .media-body .eyebrow{
+    font-size:12px;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.1em;
+    color:var(--green-mid);margin-bottom:8px;
+  }
+  .media-body h4{
+    font-family:'Fraunces',serif;
+    font-variation-settings:'SOFT' 100,'opsz' 144;
+    font-weight:600;font-size:22px;line-height:1.2;
+    color:var(--ink);letter-spacing:-0.01em;
+    margin-bottom:10px;
+  }
+  .media-body p{
+    color:var(--ink-soft);font-size:14.5px;line-height:1.6;
+  }
+
+  .travel-card{
+    display:grid;grid-template-columns:1.1fr 1fr;
+    background:#fff;border:2px solid var(--ink);border-radius:24px;
+    overflow:hidden;box-shadow:6px 6px 0 var(--ink);
+    margin-bottom:32px;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .travel-card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink);}
+  .travel-card .media-img{aspect-ratio:auto;}
+  .travel-card .media-img img{height:100%;}
+  .travel-card .media-body{
+    padding:36px 32px;display:flex;flex-direction:column;justify-content:center;
+  }
+  .travel-card .media-body h4{font-size:28px;}
+
+  /* ========== FLOATING AVATAR ========== */
+  .float-avatar{
+    position:fixed;
+    bottom:24px;right:24px;
+    width:64px;height:64px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2.5px solid var(--ink);
+    box-shadow:var(--shadow-md);
+    z-index:50;
+    cursor:pointer;
+    transition:transform .25s ease;
+  }
+  .float-avatar:hover{transform:scale(1.08) rotate(-6deg);}
+  .float-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+  .float-avatar svg{width:40px;height:40px;}
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width:980px){
+    main{padding:0 16px 60px;}
+    .stage{padding:40px 28px 56px;border-radius:24px;}
+    header.top{padding:14px 16px;}
+    .top-inner{grid-template-columns:1fr auto;gap:12px;}
+    .tabs{order:3;grid-column:1/-1;justify-self:stretch;justify-content:center;overflow-x:auto;}
+    .top-right .btn-dark span{display:none;}
+    .btn-dark{padding:10px;}
+    .home-hero{grid-template-columns:1fr;}
+    .home-hero-tag{margin-top:0;align-self:flex-start;}
+    .preview-cards{grid-template-columns:1fr;gap:18px;}
+    .pcard,.pcard:nth-child(1),.pcard:nth-child(2),.pcard:nth-child(3){transform:none;}
+    .value{grid-template-columns:60px 1fr;gap:14px;}
+    .value p{grid-column:1/-1;padding-left:74px;margin-top:-8px;}
+    .beyond-grid{grid-template-columns:1fr;}
+    .relate-block{grid-template-columns:1fr;padding:32px 24px;}
+    .job-head{flex-direction:column;}
+    .job-meta{text-align:left;}
+    .work-gallery{grid-template-columns:1fr 1fr;grid-auto-rows:140px;}
+    .gtile.tall{grid-row:span 1;}
+    .gtile.wide{grid-column:span 2;}
+    .climb-block{padding:24px;}
+    .climb-head{grid-template-columns:1fr;}
+    .climb-head .stat-pill{justify-self:start;}
+    .climb-videos{grid-template-columns:1fr;}
+    .twocol{grid-template-columns:1fr;}
+    .travel-card{grid-template-columns:1fr;}
+    .travel-card .media-img{aspect-ratio:4/3;}
+  }
+  @media (max-width:520px){
+    .stage{padding:32px 20px 44px;}
+    h1.hi{font-size:44px;}
+    .tab{padding:8px 14px;font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="logo">
+      <div class="avatar-sm"><img src="assets/avatar.jpg" alt="Mingyang Luo"></div>
+      <span class="logo-name">Mingyang Luo</span>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="home" role="tab">Home</button>
+      <button class="tab" data-tab="work" role="tab">Work</button>
+      <button class="tab" data-tab="about" role="tab">About</button>
+      <button class="tab" data-tab="beyond" role="tab">Beyond Work</button>
+    </nav>
+    <div class="top-right">
+      <a href="mailto:mingyangluo1207@gmail.com" class="btn-dark" aria-label="Say Hello">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+        <span>Say Hello</span>
+      </a>
+      <a href="https://linkedin.com/in/mingyang-luo" target="_blank" rel="noopener" class="btn-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3zM6.5 7.5a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zM19 19h-3v-5.5c0-1.4-1-1.6-1.5-1.6s-1.5.3-1.5 1.6V19h-3V9h3v1.4a3.2 3.2 0 0 1 2.8-1.4c1.5 0 3.2.9 3.2 3.6z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="stage">
+
+    <!-- ========== HOME ========== -->
+    <section class="panel active" id="home">
+      <div class="home-hero">
+        <div>
+          <h1 class="hi">
+            Hi, I'm Mingyang.<br>
+            <span class="light">Marketing analytics, growth, and brand &mdash; full stack.</span>
+          </h1>
+        </div>
+        <div class="home-hero-tag">
+          <div class="pill-tag"><span class="emoji">✨</span> Open to opportunities</div>
+        </div>
+      </div>
+
+      <p class="home-lead">
+        M.S. in Marketing Intelligence from Fordham. I work comfortably on <strong>both sides of the marketing stack</strong> &mdash;
+        from brand storytelling and campaign ops to dashboards, segmentation, and the SQL/Python that powers them.
+        Most recently led multi-brand TikTok Live operations for
+        <span class="inline-pill dark"><span class="dot"></span>Crocs</span>,
+        <span class="inline-pill dark"><span class="dot"></span>Hey Dude</span>,
+        <span class="inline-pill dark"><span class="dot"></span>Pop Mart</span>,
+        and <span class="inline-pill dark"><span class="dot"></span>comfrt</span>.
+        Open to roles in <strong>marketing analytics, growth, brand strategy, or consumer insights</strong>.
+      </p>
+
+      <div class="preview-cards">
+        <div class="pcard" data-go="work">
+          <div>
+            <h3>Work</h3>
+            <p>How I move between brand strategy, live-stream operations, and performance analytics &mdash; and the dashboards that back every call.</p>
+          </div>
+          <span class="pcard-cta">See my work →</span>
+        </div>
+        <div class="pcard" data-go="about">
+          <div>
+            <h3>About</h3>
+            <p>From UC Santa Cruz econ to Fordham marketing intelligence to a brand desk in NYC — and the values that shape how I work.</p>
+          </div>
+          <span class="pcard-cta">My journey →</span>
+        </div>
+        <div class="pcard" data-go="beyond">
+          <div>
+            <h3>Beyond Work</h3>
+            <p>Bouldering walls, band rehearsals, desert roads — the parts of my life that quietly make me better at the day job.</p>
+          </div>
+          <span class="pcard-cta">Off the clock →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WORK ========== -->
+    <section class="panel" id="work">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Work.</h2>
+          <p class="section-sub">
+            A year-plus across <strong>brand-side ops</strong> (multi-brand TikTok Live, partner management) and
+            <strong>analytics-side rigor</strong> (weekly + monthly performance reporting, segmentation, market research).
+            I&rsquo;m equally at home reading a brief and writing the SQL behind it.
+          </p>
+        </div>
+      </div>
+
+      <div class="work-list">
+
+        <article class="job">
+          <div class="job-head">
+            <div class="job-title-block">
+              <h3>Brand Manager</h3>
+              <div class="job-company">Sellery · New York, NY</div>
+            </div>
+            <div class="job-meta">
+              <div class="date">Oct 2025 – Feb 2026</div>
+              <div>Full-time</div>
+            </div>
+          </div>
+
+          <div class="job-stats" aria-label="Peak single-session results">
+            <div class="job-stat"><div class="num">$88K+</div><div class="lbl">peak session<br>GMV</div></div>
+            <div class="job-stat"><div class="num">91K+</div><div class="lbl">unique<br>viewers</div></div>
+            <div class="job-stat"><div class="num">2.68K</div><div class="lbl">items<br>sold</div></div>
+            <div class="job-stat"><div class="num">7+</div><div class="lbl">partner<br>brands</div></div>
+            <div class="job-stats-note">Peak single-session figures from owned broadcasts · screenshots in gallery below</div>
+          </div>
+
+          <ul>
+            <li>Owned <strong>end-to-end TikTok Live operations</strong> for the Catakor supplement brand — campaign planning, streamer selection, scene setup, and real-time broadcast management of <strong>8+ hour live sessions</strong>.</li>
+            <li>Drove peak single-session performance of <strong>$88K+ GMV</strong>, <strong>91K+ unique viewers</strong>, <strong>2.68K items sold</strong>, and <strong>20.89% comment rate</strong> through tight content × ops feedback loops.</li>
+            <li>Produced <strong>weekly + monthly performance reports</strong> across <strong>7+ partner brands</strong>, translating GMV, CTR, and enter-room-rate trends into the next session's playbook.</li>
+            <li>Acted as the <strong>primary liaison with brand partners</strong> (Edikted, Crocs, Hey Dude, Pop Mart, comfrt), aligning on promotional strategy, budget allocation, and key commercial events.</li>
+            <li>Collaborated cross-functionally with sales, finance, and creative teams to deliver against tight launch deadlines.</li>
+            <li>Recruited, onboarded, and managed a team of <strong>part-time moderators</strong> across multiple brand accounts.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="chip">Brand Strategy</span>
+            <span class="chip">Live-stream Ops</span>
+            <span class="chip">Performance Reporting</span>
+            <span class="chip">Cross-functional</span>
+            <span class="chip">Team Management</span>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div class="job-title-block">
+              <h3>Operation Moderator</h3>
+              <div class="job-company">Sellery · New York, NY</div>
+            </div>
+            <div class="job-meta">
+              <div class="date">Apr 2025 – Oct 2025</div>
+              <div>Part-time</div>
+            </div>
+          </div>
+          <ul>
+            <li>Co-moderated full-session TikTok Live broadcasts (typically <strong>6–10 hours</strong>) for <strong>Pop Mart, Hey Dude, Puffit</strong>, plus apparel and home appliance brands — keeping brand messaging tight and delivery smooth.</li>
+            <li>Compiled <strong>post-broadcast performance reports</strong> tracking GMV, CTR, enter-room rate, and viewer retention; top sessions hit <strong>23K+ views</strong> and <strong>870K+ impressions</strong>.</li>
+            <li>Engaged with live audiences in real time to drive interaction — peak sessions saw <strong>220+ items sold</strong>, <strong>16%+ click-through rate</strong>, and <strong>176+ new followers</strong> in a single broadcast.</li>
+            <li>Coordinated with streamers and brand managers on content flow, promotions, and real-time pivots — adjusting product order and CTAs mid-stream based on live KPIs.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="chip">TikTok Live</span>
+            <span class="chip">Audience Engagement</span>
+            <span class="chip">Conversion</span>
+            <span class="chip">Content Optimization</span>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div class="job-title-block">
+              <h3>Data Analytics Assistant</h3>
+              <div class="job-company">TD Synnex · Chengdu, China</div>
+            </div>
+            <div class="job-meta">
+              <div class="date">Aug 2023 – Sep 2023</div>
+              <div>Internship</div>
+            </div>
+          </div>
+          <ul>
+            <li>Evaluated <strong>10+ competitors</strong> and identified <strong>5 key customer segments</strong>, surfacing strategic market insights for the team.</li>
+            <li>Assessed <strong>15+ software/hardware products</strong>, contributing to a <strong>20% improvement in research efficiency</strong>.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="chip">Competitor Analysis</span>
+            <span class="chip">Market Research</span>
+            <span class="chip">Segmentation</span>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <div class="job-title-block">
+              <h3>Marketing &amp; Publicity Specialist</h3>
+              <div class="job-company">Jin Chuan Hong Technology Co. · Chengdu, China</div>
+            </div>
+            <div class="job-meta">
+              <div class="date">Jul 2023 – Aug 2023</div>
+              <div>Internship</div>
+            </div>
+          </div>
+          <ul>
+            <li>Built TikTok social media campaigns that brought in <strong>15 new customers in one week</strong> through targeted promotions — early validation of platform-led acquisition that became a core thread of my later work.</li>
+            <li>Led a <strong>team of 5</strong> in consumer behavior research; designed segment-specific content strategies that <strong>boosted engagement by 15%</strong>.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="chip">Social Campaigns</span>
+            <span class="chip">Consumer Research</span>
+            <span class="chip">Team Lead</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="gallery-head">
+        <h3>From the broadcast floor.</h3>
+        <span class="sub">A few moments from live operations and the data behind them.</span>
+      </div>
+      <div class="work-gallery">
+        <div class="gtile tall wide">
+          <img src="assets/work-dashboard-comfrt.jpg" alt="Live broadcast performance dashboard — comfrt brand: 88,707 GMV, 91.83K viewers" loading="lazy">
+          <span class="gcap">comfrt · $88,707 GMV · 91.83K viewers</span>
+        </div>
+        <div class="gtile">
+          <img src="assets/work-heydude-snowwhite.jpg" alt="HeyDude TikTok Live broadcast — Snow White themed" loading="lazy">
+          <span class="gcap">HeyDude live · themed broadcast</span>
+        </div>
+        <div class="gtile">
+          <img src="assets/work-crocs-live.jpg" alt="Crocs TikTok Live broadcast" loading="lazy">
+          <span class="gcap">Crocs live</span>
+        </div>
+        <div class="gtile">
+          <img src="assets/work-heydude-fire.jpg" alt="HeyDude TikTok Live broadcast — flash sale" loading="lazy">
+          <span class="gcap">HeyDude · flash sale</span>
+        </div>
+        <div class="gtile">
+          <img src="assets/work-crocs-studio.jpg" alt="Crocs in-store live broadcast studio setup" loading="lazy">
+          <span class="gcap">Crocs · studio setup</span>
+        </div>
+        <div class="gtile wide">
+          <img src="assets/work-dashboard-live.jpg" alt="Live performance dashboard — direct GMV $9,140, 235 current viewers" loading="lazy">
+          <span class="gcap">Real-time KPIs · $9,140 GMV · 235 viewers</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT (Journey + Values) ========== -->
+    <section class="panel" id="about">
+      <div class="section-head">
+        <div class="about-hero">
+          <div class="portrait">
+            <img src="assets/avatar.jpg" alt="Mingyang Luo">
+          </div>
+          <div>
+          <h2 class="section-title">My journey.</h2>
+          <p class="about-intro">
+            I started with an <strong>economics</strong> degree at UC Santa Cruz, sharpened the analytics
+            side at Fordham&rsquo;s <strong>Marketing Intelligence</strong> program, and have spent the last
+            year applying both &mdash; running brand campaigns and live-stream ops in New York while owning
+            the dashboards that drove every call. The thread through all of it: I love the loop between
+            <strong>data</strong> and <strong>creative</strong>. I want to keep working at that intersection,
+            on either side of it.
+          </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item now">
+          <div class="tl-date">Now · Open to next role</div>
+          <div class="tl-title">Looking for my next chapter</div>
+          <div class="tl-meta">Open to roles in <strong>marketing analytics, growth, brand strategy, consumer insights, or marketing ops</strong>. NYC-based, open to remote and hybrid.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Oct 2025 — Feb 2026</div>
+          <div class="tl-title">Brand Manager · Sellery</div>
+          <div class="tl-meta">Owned multi-brand campaigns end-to-end. Led my own team for the first time.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Apr 2025 — Oct 2025</div>
+          <div class="tl-title">Operation Moderator · Sellery</div>
+          <div class="tl-meta">Stepped onto the live-stream floor. Learned to read audiences in real time.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Aug 2024 — May 2025</div>
+          <div class="tl-title">M.S. Marketing Intelligence · Fordham University</div>
+          <div class="tl-meta">Marketing analytics, consumer behavior, integrated marketing — the toolkit I use every day.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Aug 2023 — Sep 2023</div>
+          <div class="tl-title">Data Analytics Assistant · TD Synnex</div>
+          <div class="tl-meta">First taste of competitive analysis and segmentation at scale.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jul 2023 — Aug 2023</div>
+          <div class="tl-title">Marketing &amp; Publicity Specialist · Jin Chuan Hong Technology</div>
+          <div class="tl-meta">Ran my first TikTok campaigns. Hooked on the platform from then on.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Sep 2020 — Jun 2024</div>
+          <div class="tl-title">B.A. Economics · UC Santa Cruz</div>
+          <div class="tl-meta">Where I learned to think in incentives, models, and trade-offs.</div>
+        </div>
+      </div>
+
+      <div class="values-head">
+        <h2 class="section-title">Values I believe in.</h2>
+        <p class="section-sub">
+          The way I work is shaped as much by values as it is by craft. These are the principles
+          I come back to when campaigns get messy, ambiguous, or high-stakes.
+        </p>
+      </div>
+
+      <div class="values-list">
+        <div class="value">
+          <div class="value-num">01</div>
+          <h4>Data is a story, not a verdict.</h4>
+          <p>A dashboard is the start of the conversation, not the end. Every number has a why behind it — and the next move only gets clearer when you go find that why.</p>
+        </div>
+        <div class="value">
+          <div class="value-num">02</div>
+          <h4>Listen first, broadcast second.</h4>
+          <p>I learned this on TikTok Live: audience signals always lead, content follows. The fastest way to make a brand resonate is to actually pay attention before you talk.</p>
+        </div>
+        <div class="value">
+          <div class="value-num">03</div>
+          <h4>Show up for the team.</h4>
+          <p>Multi-brand campaigns succeed when sales, finance, creative, and ops move as one. I'd rather over-communicate and ship together than protect my lane and look smart alone.</p>
+        </div>
+        <div class="value">
+          <div class="value-num">04</div>
+          <h4>Stay curious across cultures.</h4>
+          <p>Native Chinese, fluent English, comfortable bridging contexts. Different markets ask different questions — staying curious is what keeps me from defaulting to one answer.</p>
+        </div>
+      </div>
+
+      <div class="toolkit-head">
+        <h2 class="section-title">Toolkit.</h2>
+        <p class="section-sub">
+          The tools I actually use day to day &mdash; on the brand side and the data side.
+        </p>
+      </div>
+
+      <div class="toolkit-grid">
+        <div class="tk-col">
+          <div class="tk-eyebrow"><span class="swatch peach"></span>Marketing &amp; Brand</div>
+          <h4>The brand-side toolkit.</h4>
+          <div class="tk-chips">
+            <span class="tk-chip star">TikTok Live Ops</span>
+            <span class="tk-chip star">Brand Strategy</span>
+            <span class="tk-chip">Campaign Planning</span>
+            <span class="tk-chip">Social Media Management</span>
+            <span class="tk-chip">Content Creation</span>
+            <span class="tk-chip">SEO / SEM</span>
+            <span class="tk-chip">Email Marketing</span>
+            <span class="tk-chip">Budget Management</span>
+            <span class="tk-chip">Partner Management</span>
+            <span class="tk-chip">Market Research</span>
+          </div>
+        </div>
+
+        <div class="tk-col">
+          <div class="tk-eyebrow"><span class="swatch lavender"></span>Analytics &amp; Technical</div>
+          <h4>The data-side toolkit.</h4>
+          <div class="tk-chips">
+            <span class="tk-chip star">SQL</span>
+            <span class="tk-chip star">Python (Pandas)</span>
+            <span class="tk-chip star">GA4</span>
+            <span class="tk-chip">Google AdWords</span>
+            <span class="tk-chip">Meta Ads</span>
+            <span class="tk-chip">HubSpot</span>
+            <span class="tk-chip">Excel · Pivot Tables</span>
+            <span class="tk-chip">SPSS</span>
+            <span class="tk-chip">PowerPoint</span>
+            <span class="tk-chip">Adobe Photoshop</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tk-foot">
+        <span><strong>Languages:</strong> Chinese (native) &middot; English (fluent)</span>
+        <span><strong>Currently learning:</strong> Looker Studio &middot; dbt</span>
+        <span style="margin-left:auto;color:var(--green-mid);"><strong>★</strong> = used most weeks</span>
+      </div>
+
+    </section>
+
+    <!-- ========== BEYOND WORK ========== -->
+    <section class="panel" id="beyond">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Beyond work.</h2>
+          <p class="section-sub">
+            Three things I keep coming back to outside of campaigns: <strong style="color:var(--green-deep);">bouldering</strong>,
+            <strong style="color:var(--green-deep);">music</strong>, and getting on the road. They look
+            unrelated to marketing — but they're quietly where a lot of my work instincts get sharpened.
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== Climbing block ===== -->
+      <div class="climb-block">
+        <div class="climb-head">
+          <div>
+            <h3>I fall. Then I send.</h3>
+            <p>
+              Bouldering is the cleanest feedback loop I've ever found. Read the wall, try the
+              sequence, fall, adjust, try again — and at some point the move that felt impossible
+              just clicks. I bring the same patience to a campaign that's not converting yet.
+            </p>
+          </div>
+          <div class="stat-pill">
+            <span class="num">∞</span>
+            <span class="lbl">Falls before a send</span>
+          </div>
+        </div>
+        <div class="climb-videos">
+          <div class="vtile">
+            <span class="grade">Project</span>
+            <video src="assets/climb-overhang.mp4#t=1.5" poster="assets/climb-overhang-poster.jpg"
+                   autoplay muted loop playsinline preload="metadata"></video>
+            <span class="vcap">Overhang · sending it</span>
+          </div>
+          <div class="vtile">
+            <span class="grade">Top out</span>
+            <video src="assets/climb-slab.mp4#t=4" poster="assets/climb-slab-poster.jpg"
+                   autoplay muted loop playsinline preload="metadata"></video>
+            <span class="vcap">Slab · technical line</span>
+          </div>
+        </div>
+        <div class="climb-falls">
+          <strong>Why this matters at work:</strong> climbing taught me that the brave-looking
+          move is almost always the well-rehearsed one — and that falling on the way isn't failure,
+          it's data. Same loop, just a softer mat.
+        </div>
+      </div>
+
+      <!-- ===== Music block ===== -->
+      <div class="twocol">
+        <div class="media-card">
+          <div class="media-img"><img src="assets/music-band.jpg" alt="Band rehearsal in a studio with galaxy artwork on the wall, multiple musicians playing keys, guitar, and drums" loading="lazy"></div>
+          <div class="media-body">
+            <div class="eyebrow">Band rehearsal</div>
+            <h4>Listening is the loudest instrument.</h4>
+            <p>
+              In a band, the part that makes you good isn't your own playing — it's whether you're
+              listening to the four other people in the room. The same skill makes campaign syncs
+              actually go somewhere instead of running in circles.
+            </p>
+          </div>
+        </div>
+        <div class="media-card">
+          <div class="media-img"><img src="assets/music-guitar.jpg" alt="Close-up of an electric guitar being played" loading="lazy"></div>
+          <div class="media-body">
+            <div class="eyebrow">Guitar</div>
+            <h4>Practice in small loops.</h4>
+            <p>
+              I treat guitar like I treat a campaign retro: small loops, one variable at a time,
+              honest listening at every pass. Most of the work is unglamorous repetition — the
+              moments that sound effortless are the ones I drilled into the floor.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Travel block ===== -->
+      <div class="travel-card">
+        <div class="media-img">
+          <img src="assets/travel-canyon.jpg" alt="Standing on a desert road between red rock canyon walls under a clear blue sky" loading="lazy">
+        </div>
+        <div class="media-body">
+          <div class="eyebrow">Out on the road</div>
+          <h4>Most of my best ideas show up after a long drive.</h4>
+          <p>
+            New York is home base, but I find it easier to think clearly when I'm somewhere very
+            different — open roads, big skies, no notifications. I come back to the desk with
+            sharper questions, which usually beats coming back with more answers.
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== Why this matters ===== -->
+      <div class="relate-block">
+        <div>
+          <h3>Why this is on a portfolio.</h3>
+        </div>
+        <div>
+          <p>
+            The way I climb, play, and travel is how I'd describe the way I work:
+            <strong style="color:#fde68a;">read the situation, try in small loops, stay honest about feedback, and keep showing up after the fall.</strong>
+          </p>
+          <p>
+            If we end up working together, that's the same energy I'll bring to your dashboards,
+            your brand briefs, and your live broadcasts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<a class="float-avatar" id="floatAvatar" aria-label="Back to home" title="Back home (psst — hover to meet the cat)">
+  <img id="faMain" src="assets/avatar.jpg" alt="Mingyang Luo">
+  <img id="faImg" src="assets/cat.jpg" alt=""
+    style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:absolute;top:0;left:0;">
+</a>
+<script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  function activate(name){
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    panels.forEach(p => p.classList.toggle('active', p.id === name));
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
+  document.querySelectorAll('[data-go]').forEach(c => c.addEventListener('click', () => activate(c.dataset.go)));
+
+  // Floating avatar — default shows your headshot, hover shows the cat, click goes home
+  const fa = document.getElementById('floatAvatar');
+  const faImg = document.getElementById('faImg');
+  if (fa) {
+    fa.addEventListener('mouseenter', () => { faImg.style.display='block'; });
+    fa.addEventListener('mouseleave', () => { faImg.style.display='none'; });
+    fa.addEventListener('click', () => activate('home'));
+  }
+</script>
+
+</body>
+</html>
