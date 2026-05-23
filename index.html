@@ -684,7 +684,7 @@
   .work-gallery{
     display:grid;
     grid-template-columns:1.4fr 0.8fr 0.8fr;
-    grid-auto-rows:160px;
+    grid-auto-rows:180px;
     gap:14px;
   }
   .gtile{
@@ -693,11 +693,12 @@
     overflow:hidden;
     border:2px solid var(--ink);
     box-shadow:4px 4px 0 var(--ink);
-    background:#fff;
+    background:#f5ead2;
     transition:transform .25s ease, box-shadow .25s ease;
   }
   .gtile:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
-  .gtile img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gtile img{width:100%;height:100%;object-fit:contain;display:block;padding:6px;box-sizing:border-box;}
+  .gtile.tall img,.gtile.wide img{object-fit:contain;}
   .gtile .gcap{
     position:absolute;left:10px;bottom:10px;
     background:rgba(22,34,28,0.88);color:#fde68a;
@@ -1078,19 +1079,19 @@
       <div class="work-gallery">
         <div class="gtile tall wide">
           <img src="assets/work-dashboard-comfrt.jpg" alt="Live broadcast performance dashboard — comfrt brand: 88,707 GMV, 91.83K viewers" loading="lazy">
-          <span class="gcap">comfrt · $88,707 GMV · 91.83K viewers</span>
+          <span class="gcap">comfrt · $88.7K GMV · 91.8K viewers</span>
         </div>
         <div class="gtile">
-          <img src="assets/work-heydude-snowwhite.jpg" alt="HeyDude TikTok Live broadcast — Snow White themed" loading="lazy">
-          <span class="gcap">HeyDude live · themed broadcast</span>
+          <img src="assets/work-heydude-snowwhite.jpg" alt="HeyDude themed broadcast" loading="lazy">
+          <span class="gcap">HeyDude · themed broadcast</span>
         </div>
         <div class="gtile">
-          <img src="assets/work-crocs-live.jpg" alt="Crocs TikTok Live broadcast" loading="lazy">
-          <span class="gcap">Crocs live</span>
+          <img src="assets/work-crocs-live.jpg" alt="Crocs live performance analytics" loading="lazy">
+          <span class="gcap">Crocs · analytics</span>
         </div>
         <div class="gtile">
-          <img src="assets/work-heydude-fire.jpg" alt="HeyDude TikTok Live broadcast — flash sale" loading="lazy">
-          <span class="gcap">HeyDude · flash sale</span>
+          <img src="assets/work-heydude-fire.jpg" alt="HeyDude product showcase" loading="lazy">
+          <span class="gcap">HeyDude · product showcase</span>
         </div>
         <div class="gtile">
           <img src="assets/work-crocs-studio.jpg" alt="Crocs in-store live broadcast studio setup" loading="lazy">
@@ -1098,7 +1099,7 @@
         </div>
         <div class="gtile wide">
           <img src="assets/work-dashboard-live.jpg" alt="Live performance dashboard — direct GMV $9,140, 235 current viewers" loading="lazy">
-          <span class="gcap">Real-time KPIs · $9,140 GMV · 235 viewers</span>
+          <span class="gcap">Real-time KPIs dashboard</span>
         </div>
       </div>
     </section>
